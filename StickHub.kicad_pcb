@@ -34041,7 +34041,7 @@
 			(justify right mirror)
 		)
 	)
-	(gr_text "7-PORT USB\n2.0 HUB v1.4.0\nrbts.co/h1"
+	(gr_text "7-PORT USB\n2.0 HUB v1.4.1\nrbts.co/h1"
 		(at 146.75 119.5 90)
 		(layer "B.SilkS")
 		(uuid "e8ed32ed-a827-45f9-b943-8e65426f0821")
