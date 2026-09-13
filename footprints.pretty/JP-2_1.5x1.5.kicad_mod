@@ -1,0 +1,164 @@
+(footprint "JP-2_1.5x1.5"
+	(version 20250907)
+	(generator "pcbnew")
+	(generator_version "9.99")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -1.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "f714cccf-a522-4cff-a6a8-04b339cc10a8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "EXTPWR"
+		(at 0 1.1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "b50e9959-b1c0-40ad-b4e3-bc1f7d13c6a5")
+		(effects
+			(font
+				(size 0.25 0.25)
+				(thickness 0.0625)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "82f1f774-990f-4ca5-9151-79ca4a736116")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" "Not Populated"
+		(at 157.25 -105.9 90)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "c023a654-b0f0-4b2f-bbd2-0d99aafdbea5")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(attr exclude_from_pos_files allow_soldermask_bridges)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_poly
+		(pts
+			(xy 0.35 -0.8) (xy 0.349999 0.7) (xy -0.35 0.7) (xy -0.349999 -0.8)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Mask")
+		(uuid "2175fa98-e6f1-4d94-a47f-c414e0db9d80")
+	)
+	(fp_poly
+		(pts
+			(xy -1.85 0.7) (xy -2 0.7) (xy -2 -0.8) (xy -1.85 -0.8)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "48c9ed89-4df2-4967-b1f9-2d7cca59fe80")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 1.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "82909677-6ccc-4ef6-9546-0e2aedfda123")
+		(effects
+			(font
+				(size 0.25 0.25)
+				(thickness 0.0625)
+			)
+		)
+	)
+	(pad "1" connect custom
+		(at -0.975 -0.05 90)
+		(size 1.5 1.5)
+		(layers "F.Cu" "F.Mask")
+		(options
+			(clearance outline)
+			(anchor rect)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.000001 1.05) (xy -0.249999 0.55) (xy 0.25 0.55)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy -0.5 1.049999) (xy -0.75 0.55) (xy -0.249999 0.55)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy 0.5 1.05) (xy 0.25 0.55) (xy 0.75 0.550001)
+				)
+				(width 0)
+				(fill yes)
+			)
+		)
+		(tenting
+			(front none)
+			(back none)
+		)
+		(uuid "f6a0ff9e-fbac-47da-ad23-3d64e09fce5e")
+	)
+	(pad "2" connect custom
+		(at 0.975 -0.05 90)
+		(size 1.5 1.5)
+		(layers "F.Cu" "F.Mask")
+		(options
+			(clearance outline)
+			(anchor rect)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.249994 -1.05) (xy -0.000007 -0.55) (xy -0.5 -0.55)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy 0.250006 -1.049999) (xy 0.499994 -0.55) (xy -0.000001 -0.55)
+				)
+				(width 0)
+				(fill yes)
+			)
+		)
+		(tenting
+			(front none)
+			(back none)
+		)
+		(uuid "7a454748-bd53-4175-9d29-253084b5c5bc")
+	)
+	(embedded_fonts no)
+)

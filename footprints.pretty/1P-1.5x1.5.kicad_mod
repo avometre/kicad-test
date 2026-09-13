@@ -1,0 +1,76 @@
+(footprint "1P-1.5x1.5"
+	(version 20250907)
+	(generator "pcbnew")
+	(generator_version "9.99")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 4 -0.3 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "c8dc1810-b3d6-4914-9006-5405d402ad45")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "EXTGND"
+		(at 0.025 -10.225 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b8c8fa65-0073-4dab-b969-a85cefa8857e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "3741a783-08aa-4848-90eb-4a11503fbdf1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" "Not Populated"
+		(at 157.25 -100.25 0)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "13cdf229-d31a-44a2-a175-768e39d44799")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(pad "1" connect roundrect
+		(at 0 0)
+		(size 1.5 1.5)
+		(layers "F.Cu" "F.Mask")
+		(roundrect_rratio 0.067)
+		(zone_connect 1)
+		(thermal_bridge_width 0.5)
+		(thermal_gap 0.25)
+		(tenting
+			(front none)
+			(back none)
+		)
+		(uuid "5871de5b-160a-4ff1-a61a-b97150384e84")
+	)
+	(embedded_fonts no)
+)
