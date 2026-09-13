@@ -1,0 +1,33 @@
+name: BoardDiff KiCad DRC
+
+on:
+  pull_request:
+    paths:
+      - '**/*.kicad_pcb'
+  push:
+    paths:
+      - '**/*.kicad_pcb'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  drc:
+    name: KiCad DRC
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run BoardDiff DRC
+        uses: avometre/boarddiff/github-action@main
+        with:
+          url: ${{ vars.BOARDDIFF_URL }}
+          token: ${{ secrets.BOARDDIFF_TOKEN }}
+          owner: omer
+          repo: kicad-test
