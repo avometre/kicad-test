@@ -33,7 +33,7 @@ inputs:
   github-token:
     description: 'GitHub token for posting sticky PR comments'
     required: false
-    default: ${{ github.token }}
+    default: ''
 
 outputs:
   status:
@@ -71,5 +71,5 @@ runs:
         INPUT_FILE: ${{ inputs.file }}
         INPUT_FAIL_ON: ${{ inputs.fail-on }}
         INPUT_TIMEOUT: ${{ inputs.timeout }}
-        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token || github.token }}
       run: bash "${{ github.action_path }}/run.sh"

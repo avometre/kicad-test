@@ -31,3 +31,4 @@ jobs:
           token: ${{ secrets.BOARDDIFF_TOKEN }}
           owner: omer
           repo: kicad-test
+          github-token: ${{ github.token }}
