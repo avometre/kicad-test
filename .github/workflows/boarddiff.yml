@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run BoardDiff DRC
-        uses: avometre/boarddiff/github-action@main
+        uses: ./.github/actions/boarddiff
         with:
           url: ${{ vars.BOARDDIFF_URL }}
           token: ${{ secrets.BOARDDIFF_TOKEN }}

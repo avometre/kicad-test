@@ -1,0 +1,41 @@
+# .github/workflows/boarddiff.yml
+# Run BoardDiff DRC on KiCad PCB changes and report results directly on pull requests.
+
+name: BoardDiff KiCad DRC
+
+on:
+  pull_request:
+    paths:
+      - '**/*.kicad_pcb'
+  push:
+    paths:
+      - '**/*.kicad_pcb'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  drc:
+    name: KiCad DRC
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full git history required for accurate change detection
+
+      - name: Run BoardDiff DRC
+        uses: YOUR_ORG/boarddiff/github-action@v1
+        with:
+          url: ${{ vars.BOARDDIFF_URL }}
+          token: ${{ secrets.BOARDDIFF_TOKEN }}
+          owner: acme
+          repo: widget
+          # Optional inputs:
+          # file: boards/controller.kicad_pcb # Auto-detected from git diff / tree if omitted
+          # fail-on: errors                   # errors | warnings | never (default: errors)
+          # timeout: '600'                    # Per-phase timeout in seconds (default: 600)
+          # github-token: ${{ github.token }} # For sticky PR comments (default: github.token)

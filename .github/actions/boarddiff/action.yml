@@ -1,0 +1,75 @@
+name: 'BoardDiff KiCad DRC'
+description: 'Upload .kicad_pcb to BoardDiff, run real DRC checks, and post results to PR'
+author: 'BoardDiff'
+branding:
+  icon: 'check-circle'
+  color: 'green'
+
+inputs:
+  url:
+    description: 'BoardDiff origin URL (without trailing slash, e.g. https://boarddiff.example.com)'
+    required: true
+  token:
+    description: 'BoardDiff API token (bdt_... with write scope)'
+    required: true
+  owner:
+    description: 'BoardDiff repository owner slug'
+    required: true
+  repo:
+    description: 'BoardDiff repository name slug'
+    required: true
+  file:
+    description: 'Path to a specific .kicad_pcb file (auto-detected if omitted)'
+    required: false
+    default: ''
+  fail-on:
+    description: 'Failure condition: errors, warnings, or never'
+    required: false
+    default: 'errors'
+  timeout:
+    description: 'Timeout in seconds for each waiting phase (parse separate, DRC separate)'
+    required: false
+    default: '600'
+  github-token:
+    description: 'GitHub token for posting sticky PR comments'
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  status:
+    description: 'DRC status (passed, warning, failed, skipped)'
+    value: ${{ steps.drc.outputs.status }}
+  run-id:
+    description: 'BoardDiff DRC run ID'
+    value: ${{ steps.drc.outputs.run-id }}
+  url:
+    description: 'BoardDiff DRC run report URL'
+    value: ${{ steps.drc.outputs.url }}
+  errors:
+    description: 'Number of DRC errors'
+    value: ${{ steps.drc.outputs.errors }}
+  warnings:
+    description: 'Number of DRC warnings'
+    value: ${{ steps.drc.outputs.warnings }}
+  review-number:
+    description: 'BoardDiff design review number'
+    value: ${{ steps.drc.outputs.review-number }}
+  review-url:
+    description: 'BoardDiff design review URL with component and BOM diff'
+    value: ${{ steps.drc.outputs.review-url }}
+
+runs:
+  using: 'composite'
+  steps:
+    - id: drc
+      shell: bash
+      env:
+        INPUT_URL: ${{ inputs.url }}
+        INPUT_TOKEN: ${{ inputs.token }}
+        INPUT_OWNER: ${{ inputs.owner }}
+        INPUT_REPO: ${{ inputs.repo }}
+        INPUT_FILE: ${{ inputs.file }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_TIMEOUT: ${{ inputs.timeout }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+      run: bash "${{ github.action_path }}/run.sh"
